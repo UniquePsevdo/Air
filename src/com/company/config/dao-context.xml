@@ -31,7 +31,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://127.9.232.2:3306/ventilation?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<property name="url" value="jdbc:mysql://127.9.232.2:3306/ventilation"></property> <!-- ?useUnicode=true&amp;characterEncoding=UTF-8 -->
 		<!-- <property name="url" value="jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/ventilation"></property> -->
 		<property name="username" value="adminE5jqZ4d"></property>
 		<property name="password" value="1NXBkxz54_Av"></property>	
@@ -47,7 +47,7 @@
 	<property name="dataSource" ref="dataSource"></property>
 	<property name="hibernateProperties">
 		<props>
-			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
 			<prop key="javax.persistence.validation.group.pre-persist">com.company.dao.PersistenceValidationGroup</prop>
 			<prop key="javax.persistence.validation.group.pre-update">com.company.dao.PersistenceValidationGroup</prop>
 			<prop key="javax.persistence.validation.group.pre-remove">com.company.dao.PersistenceValidationGroup</prop>
