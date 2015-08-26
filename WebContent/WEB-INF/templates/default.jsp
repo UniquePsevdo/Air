@@ -27,7 +27,7 @@
 			<tiles:insertAttribute name="header"></tiles:insertAttribute>
 		</div>
 
-		<div class="content">
+		<div class="content" style="margin-bottom: 60px">
 			<tiles:insertAttribute name="content"></tiles:insertAttribute>
 		</div>
 
