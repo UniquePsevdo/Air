@@ -37,15 +37,19 @@ public class Project implements Serializable{
 	
 	@NotEmpty
 	@Pattern(regexp="[+-]*[0-9]{1,2}([,.]{1}[0-9]{1,2})*", groups={FormValidationGroup.class})
+	@Column(name="winterairtemp")
 	private String winterairtemp;
 	
 	@Pattern(regexp="[+-]*[0-9]{1,2}([,.]{1}[0-9]{1,2})*", groups={FormValidationGroup.class})
+	@Column(name="summerairtemp")
 	private String summerairtemp;
 	
 	@Pattern(regexp="[+]*[0-9]{1,2}([,.]{1}[0-9]{1,2})*", groups={FormValidationGroup.class})
+	@Column(name="winterhumid")
 	private String winterhumid;
 	
 	@Pattern(regexp="[+]*[0-9]{1,2}([,.]{1}[0-9]{1,2})*", groups={FormValidationGroup.class})
+	@Column(name="summerhumid")
 	private String summerhumid;
 		
 	private String producerscity;
