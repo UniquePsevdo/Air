@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- authentication-manager -->
+	<security:authentication-manager>			 	
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSource"
+				authorities-by-username-query="select username, authority from users where binary username = ?"
+				users-by-username-query="select username, password, true from users where binary username = ?"
+				id="jdbcUserService" /><!-- hardcoded 'true' -->
+			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<!-- pages access -->
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/projects" access="isAuthenticated()" />
+		<!-- projects ajax -->
+		<security:intercept-url pattern="/sendprojectid" access="isAuthenticated()" />
+		<security:intercept-url pattern="/getproducers" access="isAuthenticated()" />
+		<security:intercept-url pattern="/geteditedproject" access="isAuthenticated()" /> 
+		<security:intercept-url pattern="/geteditedproject2" access="isAuthenticated()" />
+		<security:intercept-url pattern="/createnewahu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/received" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deleteprojects" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deleteahus" access="isAuthenticated()" />
+		<security:intercept-url pattern="/projectsendemail" access="isAuthenticated()" />
+		<security:intercept-url pattern="/projectsendoneahuemail" access="isAuthenticated()" />
+		<security:intercept-url pattern="/sendcity" access="isAuthenticated()" />
+		<security:intercept-url pattern="/saveprojectdata" access="isAuthenticated()" />
+		<security:intercept-url pattern="/updateprojectdata" access="isAuthenticated()" />
+		<security:intercept-url pattern="/setvalidfalse" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/createnewahu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/saveahu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/updateahu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/incoming" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/incoming" access="hasRole('ROLE_PRODUCER')" />
+		<!-- incoming ajax -->
+		<security:intercept-url pattern="/geteditedproject4" access="hasRole('ROLE_PRODUCER')" />
+		<security:intercept-url pattern="/sendprojectid2" access="hasRole('ROLE_PRODUCER')" />
+		<security:intercept-url pattern="/geteditedproject3" access="hasRole('ROLE_PRODUCER')" />
+		
+		<security:intercept-url pattern="/uploadedahus" access="hasRole('ROLE_PRODUCER')" />
+		<!-- uploadedahus ajax -->
+		<security:intercept-url pattern="/uploadedahusendemail" access="hasRole('ROLE_PRODUCER')" />
+		<security:intercept-url pattern="/uploadedahusemail" access="hasRole('ROLE_PRODUCER')" />
+		
+		
+		<security:intercept-url pattern="/showahu" access="hasRole('ROLE_PRODUCER')" />
+		<security:intercept-url pattern="/upload" access="hasRole('ROLE_PRODUCER')" />
+		
+		<security:intercept-url pattern="/receivedselections" access="isAuthenticated()" />
+		<!-- receivedselections ajax -->
+		<security:intercept-url pattern="/receivedahusendemail" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/saveasahu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/pdf/*" access="isAuthenticated()" />
+		<security:intercept-url pattern="/showeditahu" access="isAuthenticated()" />
+		<security:intercept-url pattern="/showerrors" access="isAuthenticated()" />
+		<security:intercept-url pattern="/sendahusfields" access="isAuthenticated()" />
+		<security:intercept-url pattern="/getahuerrors" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/cannoteditahu" access="permitAll" />
+		<security:intercept-url pattern="/cannotshowahu" access="permitAll" />
+		<security:intercept-url pattern="/databaseerror" access="permitAll" />
+		<security:intercept-url pattern="/heavyfile" access="permitAll" />
+		<security:intercept-url pattern="/longfilename" access="permitAll" />
+		<security:intercept-url pattern="/notuploaded" access="permitAll" />
+		<security:intercept-url pattern="/smthnghappened" access="permitAll" />
+		<security:intercept-url pattern="/denied" access="permitAll" />
+		<security:intercept-url pattern="/loggedout" access="permitAll" />
+		<security:intercept-url pattern="/newaccount" access="permitAll" />
+		<security:intercept-url pattern="/createaccount" access="permitAll" />
+		<security:intercept-url pattern="/accountcreated" access="permitAll" />
+		<security:intercept-url pattern="/favicon.ico" access="permitAll" />
+		<security:intercept-url pattern="/static/**" access="permitAll" />
+		<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/**" access="denyAll" />		
+		<security:form-login login-page="/login" authentication-failure-url="/login?error=true" />
+		<security:logout logout-success-url="/loggedout" />
+		<security:access-denied-handler error-page="/denied" />
+		<security:remember-me key="ahuAppKey" user-service-ref="jdbcUserService" />
+	</security:http>
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	</bean>
+</beans>

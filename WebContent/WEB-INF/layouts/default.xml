@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="ahu.base" template="/WEB-INF/templates/default.jsp">
+		<put-attribute name="includes" value=""></put-attribute>
+		<put-attribute name="toolbar" value=""></put-attribute>
+		<put-attribute name="title" value="Ahu homepage"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/content.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="home" extends="ahu.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/draggingscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Ahu homepage"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/home.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="projects" extends="ahu.base">
+		<put-attribute name="title" value="Projects"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/projects.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="incoming" extends="ahu.base">
+		<put-attribute name="title" value="Incoming"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/incoming.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="login" extends="ahu.base">		
+		<put-attribute name="title" value="Login"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/login.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="newaccount" extends="ahu.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/newaccountscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Registration"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/newaccount.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="accountcreated" extends="ahu.base">
+		<put-attribute name="title" value="Account created"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/accountcreated.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="loggedout" extends="ahu.base">
+		<put-attribute name="title" value="Logged out"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/loggedout.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="createnewahu" extends="ahu.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/draggingscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Create new AHU"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/createnewahu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="showeditahu" extends="ahu.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/draggingscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Edit AHU"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/showeditahu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="showahu" extends="ahu.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/draggingscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Show AHU"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/showahu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="saveasahu" extends="ahu.base">
+		<put-attribute name="includes" value="/WEB-INF/tiles/draggingscript.jsp"></put-attribute>
+		<put-attribute name="title" value="Save AHU`s copy"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/saveasahu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="cannoteditahu" extends="ahu.base">
+		<put-attribute name="title" value="Not editable"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/cannoteditahu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="cannotshowahu" extends="ahu.base">
+		<put-attribute name="title" value="Not showable"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/cannotshowahu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="longfilename" extends="ahu.base">
+		<put-attribute name="title" value="Long file name"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/longfilename.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="uploadedahus" extends="ahu.base">
+		<put-attribute name="title" value="Uploaded AHUs"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/uploadedahus.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="notuploaded" extends="ahu.base">
+		<put-attribute name="title" value="Not uploaded"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/notuploaded.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="receivedselections" extends="ahu.base">
+		<put-attribute name="title" value="Received selections"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/receivedselections.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="smthnghappened" extends="ahu.base">
+		<put-attribute name="title" value="Something happened"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/smthnghappened.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="heavyfile" extends="ahu.base">
+		<put-attribute name="title" value="Heavy file"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/heavyfile.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="databaseerror" extends="ahu.base">
+		<put-attribute name="title" value="Database error"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/databaseerror.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="denied" extends="ahu.base">
+		<put-attribute name="title" value="Access denied"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/tiles/denied.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

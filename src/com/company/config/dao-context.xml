@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+
+	<context:annotation-config></context:annotation-config>
+	
+	<context:component-scan base-package="com.company.dao"></context:component-scan>
+	
+	<!-- <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/> -->
+	<beans profile="production">
+	
+				<!-- <Resource name="jdbc/db_source" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="root" password="My_1ntent10ns" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/air_db?useUnicode=true&amp;characterEncoding=UTF-8"/> -->
+		
+	<!-- <jee:jndi-lookup jndi-name="jdbc/MySQLDS" id="dataSource"
+		expected-type="javax.sql.DataSource">
+	</jee:jndi-lookup> -->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://127.9.232.2:3306/ventilation?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+		<!-- <property name="url" value="jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/ventilation"></property> -->
+		<property name="username" value="adminE5jqZ4d"></property>
+		<property name="password" value="1NXBkxz54_Av"></property>	
+	</bean>
+		
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+	<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			<prop key="javax.persistence.validation.group.pre-persist">com.company.dao.PersistenceValidationGroup</prop>
+			<prop key="javax.persistence.validation.group.pre-update">com.company.dao.PersistenceValidationGroup</prop>
+			<prop key="javax.persistence.validation.group.pre-remove">com.company.dao.PersistenceValidationGroup</prop>
+			<prop key="hibernate.show_sql">true</prop>
+		</props>
+	</property>
+	<property name="packagesToScan">
+		<list>
+			<value>com.company.dao</value>
+		</list>
+	</property>
+	</bean>
+	
+	</beans>
+</beans>
