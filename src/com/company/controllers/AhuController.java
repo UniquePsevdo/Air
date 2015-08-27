@@ -61,7 +61,7 @@ public class AhuController {
 		String exhaustsummerairflow = ((String)data.get("exhaustsummerairflow")).trim() ;
 		
 		String supplywinterpressuredrop = ((String)data.get("supplywinterpressuredrop")).trim() ;
-		String supplysummerpressuredrop = ((String)data.get("supplywinterairflow")).trim() ;
+		String supplysummerpressuredrop = ((String)data.get("supplysummerpressuredrop")).trim() ;
 		String exhaustwinterpressuredrop = ((String)data.get("exhaustwinterpressuredrop")).trim() ;
 		String exhaustsummerpressuredrop = ((String)data.get("exhaustsummerpressuredrop")).trim() ;
 		String type = (String)data.get("type") ;
@@ -120,7 +120,7 @@ public class AhuController {
 		String exhaustsummerairflow = ((String)data.get("exhaustsummerairflow")).trim() ;
 		
 		String supplywinterpressuredrop = ((String)data.get("supplywinterpressuredrop")).trim() ;
-		String supplysummerpressuredrop = ((String)data.get("supplywinterairflow")).trim() ;
+		String supplysummerpressuredrop = ((String)data.get("supplysummerpressuredrop")).trim() ;
 		String exhaustwinterpressuredrop = ((String)data.get("exhaustwinterpressuredrop")).trim() ;
 		String exhaustsummerpressuredrop = ((String)data.get("exhaustsummerpressuredrop")).trim() ;
 		String type = (String)data.get("type") ;
