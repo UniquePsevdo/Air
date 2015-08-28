@@ -154,7 +154,11 @@ you will be required to
 	<div class="container" style="text-align: center;">
 		<img style="width: 400px" src="${pageContext.request.contextPath}/static/img/AHU-example.jpg">
 	</div>
-
+	<br>
+	<h5 style="color: grey; font-weight: bold;">Promo video:</h5>
+	<div class="container" style="text-align: center;">
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/n_k9oPyaipw" frameborder="0" allowfullscreen></iframe>
+	</div>
 	
 <script type="text/javascript">
 function setHomeActive() {
