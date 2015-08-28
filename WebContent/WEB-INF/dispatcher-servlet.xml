@@ -60,9 +60,9 @@
 
 	<!-- Mail sender bean -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com" />
-		<property name="username" value="wladimir.sidorow@gmail.com" />
-		<property name="password" value="My_1ntent10n" />
+		<property name="host" value="smtp.mailgun.org" />
+		<property name="username" value="postmaster@sandbox98a83d02b23c45f490a07e9733ea0a3e.mailgun.org" />
+		<property name="password" value="949c0bc472cb8d30cd1d4b67a01b92eb" />
 		<property name="javaMailProperties">
             <props>
                 <!-- Use SMTP transport protocol -->
